@@ -53,7 +53,7 @@ const page = () => {
         onChange={changeValueDesc}
         />
 
-      <button  className='bg-black text-white text-4lx p-2 rounded ' 
+      <button  className='bg-black text-white text-4lx m-8 p-2 rounded ' 
       onClick={submitTask}
       >Add Task</button>
 
