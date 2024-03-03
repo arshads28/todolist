@@ -7,7 +7,6 @@ const page = () => {
  const[tasklist, setTasklist] = useState([])
  //const[copytask, setCopytask] = useState([])
 
-
   const submitTask = (e) =>{
     e.preventDefault();
     setTasklist([...tasklist, {title, desc}])
@@ -22,11 +21,10 @@ const page = () => {
 
   }
   
-
   const changeValueTitle = (e) =>{
     //console.log(e.target.value)
     setTitle(e.target.value)
-  
+
   }
 
   const changeValueDesc = (e) =>{
@@ -36,52 +34,50 @@ const page = () => {
   }
   return (
     <>
-    <h1 className=' px-10 text-white bg-black m-5 rounded text-3xl text-center' 
-    >My ToDo List </h1>
+      <h1 className=' px-10 text-white bg-black m-5 rounded text-3xl text-center' 
+      >My ToDo List </h1>
+      
+      <form >
+        <input type="text" 
+        className='border-zinc-800 border-2 m-8 p-2'
+        placeholder='Enter Your Title Here'
+
+        value={title}
+        onChange={changeValueTitle}
+        />
+
+  <input type="text" 
+        className='border-zinc-800 border-2 m-8 p-2'
+        placeholder='Enter Your Description'
+        value={desc}
+        onChange={changeValueDesc}
+        />
+
+      <button  className='bg-black text-white text-4lx p-2 rounded ' 
+      onClick={submitTask}
+      >Add Task</button>
+
+      </form>
+
     
-    <form >
-      <input type="text" 
-      className='border-zinc-800 border-2 m-8 p-2'
-      placeholder='Enter Your Title Here'
-
-      value={title}
-      onChange={changeValueTitle}
-      />
-
-<input type="text" 
-      className='border-zinc-800 border-2 m-8 p-2'
-      placeholder='Enter Your Description'
-      value={desc}
-      onChange={changeValueDesc}
-      />
-
-     <button  className='bg-black text-white text-4lx p-2 rounded ' 
-     onClick={submitTask}
-     >Add Task</button>
-
-    </form>
-
-  
 
 
+          
+      {tasklist?.map((t, i)=>(
         
-    {tasklist?.map((t, i)=>(
-      
-      
+        
 
-     <div key={i} className='  flex justify-between gap-10 p-7 '> <h1>{t.title}</h1>
-     <h1>{t.desc}</h1>
+      <div key={i} className='  flex justify-between gap-10 p-7 '> <h1>{t.title}</h1>
+      <h1>{t.desc}</h1>
 
-     <button className='bg-red-400 text-white text-4lx p-2 rounded'
-     onClick={()=>{
-      deleteHandeler(i);
-     }}
-     >Delete</button>
-</div>
-
-
-  
-))}
+      <button className='bg-red-400 text-white text-4lx p-2 rounded'
+      onClick={()=>{
+        deleteHandeler(i);
+      }}
+      >Delete</button>
+      </div>
+    
+  ))}
 
   
 
